@@ -3,20 +3,33 @@ import { BiSearch } from "react-icons/bi"
 import { BsGithub } from "react-icons/bs"
 import { IoEarthOutline } from "react-icons/io5"
 import axios from "axios";
+import { useFormStatus } from "react-dom";
 
 
-
+interface Data {
+  country_flag:string,
+  country_name: string,
+  district?:string,
+  calling_code:string,
+  country_capital:string
+}
 function App() {
 
-const [data, setData] = useState<Object>({})
+const [data, setData] = useState<Data>()
 const [searchIP, setSearchIP] = useState<string>("")
+const [isLoading, setIsLoading] = useState<boolean>(false)
+const {pending} =useFormStatus()
+const [error, setError] = useState<string|null>(null)
 const trackIP = async () => {
+  setIsLoading(true)
   try{
     await axios.get(`https://api.ipgeolocation.io/ipgeo?apiKey=e99753828a36470f8156d603dd7dcebb&ip=${searchIP}`)
     .then(({data}) => setData(data))
-    .catch((err) => console.log(err))
-  }catch(err) {
-    console.log(err);
+    .then(() => setIsLoading(false))
+    .finally(() => setIsLoading(false))
+    .catch((err) => setError(err))
+  }catch(err:any) {
+    setError(err.message)
     
   }
 }
@@ -26,7 +39,7 @@ const search = (e:FormEvent<HTMLFormElement>) => {
   trackIP()
 }
 
-const handleSearch = (e) => {
+const handleSearch = (e:any) => {
   setSearchIP(e.target.value)
 }
 
@@ -72,8 +85,32 @@ console.log(data);
             />
           </svg>
         </label>
-        <button className="btn btn-neutral ">Search</button>
+        <button className="btn btn-neutral ">{pending?'Loading..':'Search'}</button>
       </form>
+        {error&&<div role="alert" className="alert alert-error">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="h-6 w-6 shrink-0 stroke-current"
+    fill="none"
+    viewBox="0 0 24 24">
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+  </svg>
+  <span>Error! cannot track the IP Address</span>
+</div>
+}
+      {isLoading?<div className="w-1/2 mx-auto flex justify-center"><span className="loading loading-spinner loading-lg "></span></div>:(<div className="mt-10 flex w-full lg:w-1/3 mx-auto justify-center bg-neutral min-h-10 rounded-lg">
+          <ul>
+            <li>Country: {data!=null?<img src={data?.country_flag} alt="country flag" className="w-4 h-4 inline"/>:''} {data?.country_name}</li>
+            <li>Capital: {data?.country_capital}</li>
+            <li>District: {data?.district}</li>
+            <li>Calling Code: {data?.calling_code}</li>   
+          </ul>
+      </div>)}
+ 
     </>
   );
 }
