@@ -52,7 +52,7 @@ console.log(data);
       <div className="navbar bg-neutral">
         <div className="flex-1">
           <a className="text-neutral-100 text-2xl font-bold ">
-            IPtracker <IoEarthOutline className="text-info inline" />
+            IPtracker <IoEarthOutline size={30} className="text-info inline" />
           </a>
         </div>
         <div className="flex-none">
