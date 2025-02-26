@@ -107,10 +107,11 @@ console.log(data);
             <li>Country: {data!=null?<img src={data?.country_flag} alt="country flag" className="w-4 h-4 inline"/>:''} {data?.country_name}</li>
             <li>Capital: {data?.country_capital}</li>
             <li>District: {data?.district}</li>
-            <li>Calling Code: {data?.calling_code}</li>   
+            <li>Calling Code: {data?.calling_code}</li>     
           </ul>
       </div>)}
- 
+        
+        <footer className=" text-neutral-500 text-center absolute bottom-0 right-0 left-0 p-2">Made with ❤️ by <a className="underline" href="https://github.com/BranGitfox">BranGitfox</a>, Copyright (c) 2025</footer>
     </>
   );
 }
