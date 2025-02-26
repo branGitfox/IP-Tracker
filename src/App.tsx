@@ -22,9 +22,9 @@ function App() {
 <div className="mt-10 mx-auto">
     <h1 className="text-4xl text-center text-neutral-100 font-md">Geolocalize IP address <BiSearch className="inline " size={40}/></h1>
 </div>
-    <div className="lg:w-1/2 w-full mt-10 mx-auto p-4">
-    <label className="input input-bordered   flex items-center gap-2">
-  <input type="text" className="grow" placeholder="Search for IP address..." />
+    <div className="lg:w-1/2 w-full mt-10 mx-auto p-4 flex justify-center gap-2">
+    <label className="input input-bordered   flex items-center gap-2 w-2/3">
+  <input type="text" className="grow " placeholder="Search for IP address..." />
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 16 16"
@@ -36,6 +36,7 @@ function App() {
       clipRule="evenodd" />
   </svg>
 </label>
+<button className="btn btn-neutral-200 ">Search</button>
 
     </div>
     </>
