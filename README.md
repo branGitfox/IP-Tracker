@@ -5,7 +5,7 @@ IP-Tracker can geolocalize ip-address in world, check the website [here](https:/
 
 # API Reference
 ```bash
-axios.get('https://api.ipgeolocation.io/ipgeo?apiKey=e99753828a36470f8156d603dd7dcebb&ip=the_ip_you_want_to_find}')
+axios.get('https://api.ipgeolocation.io/ipgeo?apiKey=e99753828a36470f8156d603dd7dcebb&ip={the_ip_you_want_to_find}')
 ```
 # Features
 <ul>
