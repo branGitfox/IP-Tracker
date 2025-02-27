@@ -1,50 +1,31 @@
-# React + TypeScript + Vite
+# IP-TRACKER 
+IP-Tracker can geolocalize ip-address in world
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+# API Reference
+```bash
+axios.get('https://api.ipgeolocation.io/ipgeo?apiKey=e99753828a36470f8156d603dd7dcebb&ip=the_ip_you_want_to_find}')
 ```
+# Features
+<ul>
+  <li>Geolocalize IP-Adress</li>
+  <li>Show information about country</li>
+</ul>
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+# Contribution
+Every contribution is welcome, there is a lot of feature needed like:
+<li>Using google map API with data latitude & longitude</li>
+<li>show more info about the ip-address</li>
+  <li>And more</li>
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+# Tech i used
+  <li>React</li>
+  <li>typescript</li>
+  <li>Daisy UI</li>
+  <li>Tailwind CSS</li>
+
+  Thanks you for attention !
+
+
+
+
