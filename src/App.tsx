@@ -45,7 +45,7 @@ const handleSearch = (e:any) => {
 
 
 
-console.log(data);
+
 
   return (
     <>
@@ -56,7 +56,7 @@ console.log(data);
           </a>
         </div>
         <div className="flex-none">
-          <BsGithub size={30} className="text-neutral-100" />
+          <a href="https://github.com/branGitfox/IP-Tracker.git"><BsGithub size={30} className="text-neutral-100" /></a>
         </div>
       </div>
       <div className="mt-10 mx-auto">
